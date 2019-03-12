@@ -1,0 +1,100 @@
+浅拷贝是指只复制一层对象，当对象的属性是引用类型时，实质复制的是其引用，当引用指向的值改变时也会跟着变化
+深拷贝是指复制对象的所有层级，实现方法
+
+https://blog.csdn.net/chi1130/article/details/82084177
+
+
+、beforeCreate
+　　在实例初始化之后，数据观测和event/watcher时间配置之前被调用。
+2、created
+　　实例已经创建完成之后被调用。在这一步，实例已经完成以下的配置：数据观测，属性和方法的运算，watch/event事件回调。然而，挂载阶段还没开始，$el属性目前不可见。
+3、beforeMount
+　　在挂载开始之前被调用：相关的render函数首次被调用。
+　　该钩子在服务器端渲染期间不被调用。
+4、mounted
+　　el被新创建的vm.$el替换，并挂在到实例上去之后调用该钩子函数。如果root实例挂载了一个文档内元素，当mounted被调用时vm.$el也在文档内。
+　　该钩子在服务端渲染期间不被调用。
+5、beforeUpdate
+　　数据更新时调用，发生在虚拟DOM重新渲染和打补丁之前。
+　　你可以在这个钩子中进一步第更改状态，这不会触发附加的重渲染过程。
+　　该钩子在服务端渲染期间不被调用。
+6、updated
+　　由于数据更改导致的虚拟DOM重新渲染和打补丁，在这之后会调用该钩子。
+　　当这个钩子被调用时，组件DOM已经更新，所以你现在可以执行依赖于DOM的操作。然而在大多数情况下，你应该避免在此期间更改状态，因为这可能会导致更新无限循环。
+　　该钩子在服务端渲染期间不被调用。
+7、activated
+　　keep-alive组件激活时调用。
+　　该钩子在服务器端渲染期间不被调用。
+(如果你使用keep-alive进行缓存， 又希望每次切换组件的时候更新数据，那么更新数据的请求方式必须写在该钩子函数里)
+8、deactivated
+　　keep-alive组件停用时调用。
+　　该钩子在服务端渲染期间不被调用。
+9、beforeDestroy 【类似于React生命周期的componentWillUnmount】
+　　实例销毁之前调用。在这一步，实例仍然完全可用。
+　　该钩子在服务端渲染期间不被调用。
+10、destroyed
+　　Vue实例销毁后调用。调用后，Vue实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
+　　该钩子在服务端渲染不会被调用。
+
+
+function f1() {
+  n = 9;
+  function f2() {
+    console.log(n);
+  }
+  return f2;
+}
+f1();
+var result = f1(); //f2函数
+result(); // 执行
+
+function Person(name, age) {
+	this.name = name;
+	this.age = age;
+}
+Person.prototype.say = function() {
+	console.log(this.name + '说话了');
+};
+var per = new Person('小明', 20);
+per.say();
+//再定义一个student类,欲意继承Person
+function Student(grade) {
+	this.grade = grade;
+}
+//将student的prototype设为Person对象
+Student.prototype = new Person('小红', 22);
+//为Student添加方法
+Student.prototype.intro = function() {
+	console.log(this.name + '是' + this.grade + '年级学生');
+};
+var stu = new Student(3);
+stu.name = '小刚';
+console.log(stu instanceof Person && stu instanceof Student); //true
+stu.say(); //小刚说话了
+stu.intro(); //小刚是3年级学生
+
+  let data = [
+    { node_id: 1, parent_id: 0, name: 'a' },
+    { node_id: 2, parent_id: 1, name: 'b' },
+    { node_id: 3, parent_id: 2, name: 'c' },
+    { node_id: 4, parent_id: 3, name: 'd' },
+    { node_id: 5, parent_id: 4, name: 'e' },
+    { node_id: 6, parent_id: 5, name: 'f' }
+  ]
+  function setTreeData(source) {
+    let cloneData = JSON.parse(JSON.stringify(source))
+    let tree = cloneData.filter(father => {
+      let children = cloneData.filter(child => {
+        return father.node_id == child.parent_id
+      });
+      if (children.length > 0) {
+        father.children = children;
+        father.parent = father.parent_id;
+        delete father.parent_id;
+      }
+      return father.parent == 0;
+    });
+    return tree
+  }
+  const result = setTreeData(data);
+  console.log('result: ', result);

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+  const oMeta = document.createElement('meta');
+  oMeta.content = 'text/html; charset=utf-8';
+  document.querySelectorAll('head')[0].appendChild(oMeta);
+  document.body.innerHTML = '你好，世界！';
+  const style = {
+    'display': 'flex',
+    'justifyContent': 'center',
+    'alignItems': 'center',
+    'height': '100vh',
+    'color': 'red'
+  }
+  const {display, justifyContent, alignItems, height, color } = style
+  document.body.style.display = display;
+  document.body.style.justifyContent = justifyContent;
+  document.body.style.alignItems = alignItems;
+  document.body.style.height = height;
+  document.body.style.color = color;
+</script>
+</html>

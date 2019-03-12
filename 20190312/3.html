@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  let data = [
+    { node_id: 1, parent_id: 0, name: 'a' },
+    { node_id: 2, parent_id: 1, name: 'b' },
+    { node_id: 3, parent_id: 2, name: 'c' },
+    { node_id: 4, parent_id: 3, name: 'd' },
+    { node_id: 5, parent_id: 4, name: 'e' },
+    { node_id: 6, parent_id: 5, name: 'f' }
+  ]
+  function setTreeData(source) {
+    let cloneData = JSON.parse(JSON.stringify(source))
+    let tree = cloneData.filter(father => {
+      let children = cloneData.filter(child => {
+        return father.node_id == child.parent_id
+      });
+      if (children.length > 0) {
+        father.children = children;
+        father.parent = father.parent_id;
+        delete father.parent_id;
+      }
+      return father.parent == 0;
+    });
+    return tree
+  }
+  var result = setTreeData(data);
+  console.log('result: ', result);
+</script>
+
+</html>
