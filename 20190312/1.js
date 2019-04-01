@@ -5,7 +5,7 @@ function f1() {
   }
   return f2;
 }
-f1();
+// f1();
 var result = f1(); //f2函数
 result(); // 执行
 

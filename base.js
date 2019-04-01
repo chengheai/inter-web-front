@@ -5,5 +5,8 @@ var obj ={
   }
 }
 obj.get();
-var fn = obj.get();
-// fn();
+var fn = obj.get;
+var fn1 = new obj();
+console.log(fn)
+var aa = fn1.get;
+aa();
