@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    ul li{
+      list-style: none;
+    }
+    body{
+      background: #000;
+    }
+    div{
+      width: 300px;
+      overflow: hidden;
+      height: 100px;
+      position: relative;
+    }
+    ul{
+      width: auto;
+      position: absolute;
+      left: 0;
+      height: 100px;
+    }
+    ul li{
+      width: 100px;
+      height: 100px;
+      background: red;
+      float: left;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <ul id="ul1">
+      <li>1</li>
+      <li style="background: yellow">2</li>
+      <li style="background: rgb(22, 8, 145)">3</li>
+      <li style="background: rgb(199, 10, 174)">4</li>
+    </ul>
+  </div>
+  <button id="prev">prev</button>
+  <button id="next">next</button>
+</body>
+<script>
+  var ul = document.getElementById('ul1');
+  document.getElementById('prev').onclick = function(){
+    ul.style.left = -100 + 'px';
+    // console.log('do', document.getElementsByTagName('ul'));
+  }
+  document.getElementById('next').onclick = function(){
+    document.getElementById('ul1').style.left = -100 + 'px';
+  }
+</script>
+</html>
