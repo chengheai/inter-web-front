@@ -15,3 +15,10 @@ for (var i = 0; i < 3; i++) {
       console.log(i);
   }, 0);
 }
+for(var i = 0; i < 3; i++) {
+  setTimeout(((i) => {
+    return function() {
+      console.log(i)
+    }
+  })(i), 0);
+}
