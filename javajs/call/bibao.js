@@ -1,6 +1,7 @@
 function makeAdder(a) {
   return function(b) {
-      return a + b;
+      // return a + b;
+      console.log(a + b)
   }
 }
 var x = makeAdder(5);

@@ -8,7 +8,8 @@ function foo() {
 	for (var i = 0; i < arguments.length; i++) {
 		sum += arguments[i]
 	}
-	document.write(sum);
+	// document.write(sum);
+	console.log(sum);
 }
 
 foo(1, 2, 3, 4, 5, 55);
