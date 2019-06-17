@@ -19,8 +19,10 @@ function getName() {
 
 Foo.getName();  // 2
 getName(); // 4
-Foo().getName(); // 报错
-getName(); // 4
+Foo().getName(); // 1
+getName(); // 1
 new Foo.getName(); // 2
 new Foo().getName(); // 3
 new new Foo().getName(); // 3
+
+//2 4 1 1 2 3 3

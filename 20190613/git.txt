@@ -1,0 +1,5 @@
+git rebase 与git merge的区别
+单根继承
+什么时候用到事件捕获
+constructor是什么
+extends 是什么
