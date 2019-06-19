@@ -1,4 +1,4 @@
-function foo() {
+function foo(a, b) {
 	var sum = 0;
 	console.log(arguments);//伪数组或者类数组对象
 	//arguments[0]取到第一个实参值，arguments[arguments.length-1]取到最后一个实参值
@@ -10,6 +10,8 @@ function foo() {
 	}
 	// document.write(sum);
 	console.log(sum);
+	console.log('arguments:', arguments) // 实参
+	console.log('foo.length:', foo.length); // 形参
 }
 
 foo(1, 2, 3, 4, 5, 55);
