@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .left{
+      left: 0;
+      width: 100px;
+      background: red;
+    }
+    .right{
+      right: 0;
+      width: 100px;
+      background: blue;
+    }
+    .wrap{
+      position: relative;
+    }
+    .wrap> div{
+      position: absolute;
+    }
+    .middle{
+      left: 100px;
+      right: 100px;
+      background: rosybrown;
+    }
+  </style>
+</head>
+<!-- 中间响应式，两边固定 -->
+<body>
+  <div class="wrap">
+    <div class="left">left</div>
+    <div class="middle">我是中间的</div>
+    <div class="right">right</div>
+  </div>
+</body>
+</html>

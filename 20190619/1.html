@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .left{
+      width: 100px;
+      background: red;
+    }
+    .right{
+      width: 100px;
+      background: blue;
+    }
+    .wrap{
+      display: flex;
+    }
+    .middle{
+      flex: 1;
+      background: rosybrown;
+    }
+  </style>
+</head>
+<!-- 中间响应式，两边固定 -->
+<body>
+  <div class="wrap">
+    <div class="left">left</div>
+    <div class="middle"></div>
+    <div class="right">right</div>
+  </div>
+</body>
+</html>
