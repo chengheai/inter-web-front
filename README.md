@@ -1,1 +1,1 @@
-# interviewjs
+# only for daily inter
