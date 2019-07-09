@@ -12,8 +12,9 @@ var obj = {
 //  var o ={
 //    a: 1+1  // 先执行 1 + 1；
 //  }
-//  console.log(a.a)// 
+//  console.log(a.a)
 var fn = obj.fn;
+// console.log(fn);
 var result1 = obj.fn();
 var result2 = fn();
 console.log('result1: ', result1);
