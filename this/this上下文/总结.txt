@@ -1,0 +1,24 @@
+1，函数圆括号直接调用，this指向的是window对象
+【 所有的全局变量都是window属性， 而函数里面的变量是局部变量，不是window属性，不是任何东西的属性，它就是一个变量 】
+ fn();
+2，一个对象的方法，对象打点调用，此时this是该对象
+obj.fn();
+3,函数是处理函数，函数的上下文是触发这个事件的对象
+document.getElementById('box').onclick = function(){this}
+4, 定时器调用函数，this指向window
+setInterval setTimeout
+例子：
+var box = document.getElementById('box);
+box.onclick = function(){
+  // 这里要备份this，备份上下文
+  let that = this;
+  setTimeout(function(){
+    that.style.background = 'red'
+  }, 2000)
+}
+5，数组中存在函数，被数组索引调用，this就是这个数组  【枚举出调用】
+function fn(){
+  console.log(this);
+}
+var arr = [fn,1,2];
+arr[0]() // this是arr
