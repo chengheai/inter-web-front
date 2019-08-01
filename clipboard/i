@@ -1,0 +1,31 @@
+const text = {
+  // 复制文本
+  copyToClipboard(text) {
+    if (window.clipboardData && window.clipboardData.setData) {
+      return window.clipboardData.setData("Text", text);
+    } else if (
+      document.queryCommandSupported &&
+      document.queryCommandSupported("copy")
+    ) {
+      const textarea = document.createElement(
+        "textarea"
+      )
+      textarea.textContent = text;
+      textarea.style.position = "fixed";
+      textarea.style.bottom = "0";
+      textarea.style.zIndex = "99999";
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } catch (ex) {
+        // eslint-disable-next-line
+        console.warn("Copy to clipboard failed.", ex);
+        return false;
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+  }
+}
+export default text
