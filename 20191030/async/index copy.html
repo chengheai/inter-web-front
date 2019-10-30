@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script>
+    const qingqiu = (url) => {
+      return new Promise((resolve) => {
+        $.get(url, data => {
+          resolve(data)
+        })
+      })
+    }
+    async function main() {
+      const n1 = await qingqiu('1.php');
+      alert(n1)
+      const n2 = await qingqiu('2.php');
+      alert(n2)
+      const n3 = await qingqiu('3.php');
+      alert(n3)
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
