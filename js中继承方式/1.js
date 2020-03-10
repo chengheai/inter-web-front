@@ -11,3 +11,4 @@ function Child() {
 var q1 = new Child();
 console.log(q1.name); // parent
 console.log(q1.colors); // [ 'black', 'yellow', 'red' ]
+// console.log(Parent)

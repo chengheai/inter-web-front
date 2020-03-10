@@ -6,7 +6,7 @@
 
 function test(fruit) {
   const resFruits = ['apple', 'strawberry', 'cherry', 'cranberries'];
-  if(resFruits.includes(fruit)){
+  if (resFruits.includes(fruit)) {
     console.log('red');
   }
 }

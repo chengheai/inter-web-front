@@ -7,14 +7,18 @@ function Parent() {
 }
 function Child() {
   Parent.call(this);
+  // this.name = '1111';
   this.type = 'child';
 }
 Parent.prototype.age = 12;
-Parent.prototype.say = function(){
+Parent.prototype.say = function () {
   console.log('hello');
 }
+// ?
 Child.prototype = Object.create(Parent.prototype);
+console.log('1:', Child.prototype.constructor)
 Child.prototype.constructor = Child;
+console.log('2: ', Child.prototype.constructor)
 var q1 = new Child();
 var q2 = new Child();
 q1.colors.push('pink');

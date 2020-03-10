@@ -8,10 +8,11 @@ function Child() {
   this.type = 'child';
 }
 Parent.prototype.age = 12;
-Parent.prototype.say = function(){
+Parent.prototype.say = function () {
   console.log('hello');
 }
 var q1 = new Child();
 console.log(q1);
+// 原型上的不继承
 console.log(q1.age); // undefined
 console.log(q1.say()); // 报错
