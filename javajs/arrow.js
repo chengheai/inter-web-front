@@ -1,10 +1,10 @@
 let obj = {
   a: 1,
-  fn: function(){
-    console.log(this);
+  fn: function () {
+    console.log('fun:', this);
   },
-  c:()=> {
-    console.log(this);
+  c: () => {
+    console.log('arrow:', this); // window
   }
 }
 const aa = obj.fn();
