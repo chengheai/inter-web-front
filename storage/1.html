@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      let query = {
+        a: 1,
+        b: 2
+      };
+      sessionStorage.setItem("query", JSON.stringify(query));
+      let result = JSON.parse(sessionStorage.getItem("query"));
+      console.log(result);
+      document.getElementById("root").innerHTML = result;
+    </script>
+  </body>
+</html>
