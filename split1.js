@@ -1,0 +1,2 @@
+var aaa = '请求记录=== ip:127.0.0.1, url:/psbcrm/user/user, httpMethod:POST, uri:/psbcrm/user/user, classMethod:com.psb.crm.controller.UserController.insertUser, args:[User(id=3, userName=zjing, password=caf1a3dfb505ffed0d024130f58c5cfa, remark=, isUsable=1, isDeleted=0, createTime=2018-10-16T16:36:13.333, updateTime=2018-10-16T16:36:13.333, createId=2, updateId=2, updateName=test)]'
+console.log(aaa.split(':'))
