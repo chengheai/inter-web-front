@@ -1,0 +1,15 @@
+{
+  "name": "commonjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "http-server -p 10000 dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.12.1",
+    "cross-env": "^7.0.2"
+  }
+}
