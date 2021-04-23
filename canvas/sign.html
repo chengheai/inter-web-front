@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>签名板</title>
+		<style>
+			#myCanvas {
+				background: #cccccc;
+				display: block;
+				margin: 0 auto;
+			}
+			#clear {
+				margin-left: 30%;
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="600" height="300"></canvas>
+		<button id="clear" onclick="canvas.width = canvas.width">复原</button>
+	</body>
+	<script>
+		var canvas = document.querySelector('#myCanvas'); //画布
+		var ctx = canvas.getContext('2d'); //画笔
+		(function () {
+			ctx.globalAlpha = 1; // 设置图片的透明度
+			ctx.lineWidth = 3; // 设置线宽
+			ctx.strokeStyle = 'red'; // 设置路径颜
+			canvas.onmousedown = function () {
+				ctx.beginPath();
+				ctx.moveTo(event.offsetX, event.offsetY); //起点
+				document.onmousemove = function () {
+					ctx.lineTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
+					ctx.stroke();
+				};
+				document.onmouseup = function () {
+					document.onmousemove = null;
+				};
+			};
+		})();
+	</script>
+</html>
